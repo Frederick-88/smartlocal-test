@@ -1,0 +1,15 @@
+.btn-secondary:focus {
+  background-color: red !important;
+}
+.card-shadow-fx {
+  box-shadow: 0px 2px 7px 7px rgba(0, 0, 0, 0.2);
+}
+.btn-outline-black {
+  color: #1a1a1a;
+  border-color: #1a1a1a !important;
+}
+.btn-outline-black:hover {
+  color: whitesmoke !important;
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+}

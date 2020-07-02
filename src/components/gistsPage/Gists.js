@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import GistsProfileModal from "./GistsProfileModal";
+import logoGithub from "../../assets/logo-github.png";
+import gistsPic from "../../assets/gists.png";
 import axios from "axios";
+import "../style.css";
 
 function Gists() {
   const [dataGists, setDataGists] = useState([]);
   const [showGistsProfileModal, setShowGistsProfileModal] = useState(false);
+  const [urlDataProfile, setUrlDataProfile] = useState("");
 
   useEffect(() => {
     axios.get("https://api.github.com/gists/public").then((response) => {
@@ -12,7 +16,8 @@ function Gists() {
     });
   }, []);
 
-  const goProfile = () => {
+  const goProfile = (itemUrl) => {
+    setUrlDataProfile(itemUrl);
     setShowGistsProfileModal(true);
   };
 
@@ -21,14 +26,33 @@ function Gists() {
   };
 
   return (
-    <div>
-      <h1>INI PAGE GISTS</h1>
-      <div className="container">
+    <div className="border-left">
+      <div className="text-center mb-3">
+        <img
+          src={logoGithub}
+          style={{ width: "15rem", marginTop: "1rem" }}
+          alt="..."
+        />
+      </div>
+      <div className="mx-5">
+        <div className="row">
+          <div className="col-md-6">
+            <img src={gistsPic} alt="..." className="w-75" />
+          </div>
+
+          <div className="col-md-6">
+            <h3 className="my-0">What is Gists?</h3>
+          </div>
+        </div>
+        <div></div>
+      </div>
+      <div className="mx-5">
+        <h3 className="my-0">Featured Gists</h3>
         <div className="row">
           {dataGists.map((item, index) => {
             return (
               <div className="col-md-3 mt-4" key={index}>
-                <div class="card text-white bg-secondary">
+                <div class="card card-shadow-fx">
                   <img
                     src={item.owner.avatar_url}
                     class="card-img-top"
@@ -54,7 +78,7 @@ function Gists() {
                     </a>
 
                     <button
-                      onClick={() => goProfile()}
+                      onClick={() => goProfile(item.owner.url)}
                       className="btn btn-outline-danger"
                     >
                       See Contributor
@@ -69,6 +93,7 @@ function Gists() {
       <GistsProfileModal
         showGistsProfileModal={showGistsProfileModal}
         undisplayGistsProfileModal={undisplayGistsProfileModal}
+        urlDataProfile={urlDataProfile}
       />
     </div>
   );
