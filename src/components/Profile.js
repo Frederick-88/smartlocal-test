@@ -62,7 +62,7 @@ function Profile() {
       <ToastContainer />
       <div className="mx-5 border-top">
         <form onSubmit={handleSubmit}>
-          <div class="input-group mb-3">
+          <div class="input-group mb-3 mt-4">
             <input
               type="text"
               class="form-control"

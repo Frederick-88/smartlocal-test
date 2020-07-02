@@ -9,12 +9,24 @@ function Gists() {
   const [dataGists, setDataGists] = useState([]);
   const [showGistsProfileModal, setShowGistsProfileModal] = useState(false);
   const [urlDataProfile, setUrlDataProfile] = useState("");
+  const [dataFavourite, setDataFavourite] = useState([]);
+  // add favourite = if function clicked, needed to avoid looping in useEffect when use "dataFavourite" as parameter.
+  const [addFavourite, setAddFavourite] = useState(false);
+  console.log(dataFavourite);
 
   useEffect(() => {
     axios.get("https://api.github.com/gists/public").then((response) => {
       setDataGists(response.data);
     });
   }, []);
+
+  useEffect(() => {
+    const getDataFavourite = localStorage.getItem(
+      "data-favourite",
+      dataFavourite
+    );
+    setDataFavourite(getDataFavourite ? getDataFavourite : []);
+  }, [addFavourite]);
 
   const goProfile = (itemUrl) => {
     setUrlDataProfile(itemUrl);
@@ -23,6 +35,14 @@ function Gists() {
 
   const undisplayGistsProfileModal = (boolean) => {
     setShowGistsProfileModal(false);
+  };
+
+  const setFavourite = (data) => {
+    setAddFavourite(!addFavourite);
+    setDataFavourite(...dataFavourite, data);
+    console.log(dataFavourite);
+
+    // localStorage.setItem("data-favourite", dataFavourite);
   };
 
   return (
@@ -79,6 +99,7 @@ function Gists() {
                     </p>
 
                     <button
+                      onClick={() => setFavourite(item)}
                       className="btn btn-outline-danger rounded-circle p-0 mr-2"
                       style={{ height: "2.5rem", width: "2.5rem" }}
                     >

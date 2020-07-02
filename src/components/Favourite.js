@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import logoGithub from "../assets/logo-github.png";
+import axios from "axios";
 
 function Favourite() {
+  const [dataFavourite, setDataFavourite] = useState([]);
+  console.log(dataFavourite);
+
+  useEffect(() => {
+    const getData = localStorage.getItem("data-favourite");
+    setDataFavourite(getData);
+  }, []);
+
   return (
     <div>
-      <h5 className="mt-4 d-flex d-row justify-content-center">
-        <p className="mr-2">HOME</p>
-        <p className="my-0">/ DEVELOPER</p>
-      </h5>
-      <h1>INI PAGE Favourite</h1>
+      <div className="text-center mb-3">
+        <img
+          src={logoGithub}
+          style={{ width: "8rem", marginTop: "1.5rem" }}
+          alt="..."
+        />
+      </div>
+      <div className="mx-5 border-top"></div>
     </div>
   );
 }

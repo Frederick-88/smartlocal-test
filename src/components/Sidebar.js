@@ -4,7 +4,10 @@ import logo from "../assets/logo-smartlocal.png";
 
 function Sidebar() {
   return (
-    <div className="text-center" style={{ width: "200px", height: "100vh" }}>
+    <div
+      className="text-center border-right"
+      style={{ width: "200px", height: "100vh" }}
+    >
       <img src={logo} style={{ width: "8rem" }} className="my-3" alt="..." />
 
       <div className="list-group">
