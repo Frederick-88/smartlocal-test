@@ -30,58 +30,76 @@ function Gists() {
       <div className="text-center mb-3">
         <img
           src={logoGithub}
-          style={{ width: "15rem", marginTop: "1rem" }}
+          style={{ width: "10rem", marginTop: "1.5rem" }}
           alt="..."
         />
       </div>
-      <div className="mx-5">
-        <div className="row">
-          <div className="col-md-6">
-            <img src={gistsPic} alt="..." className="w-75" />
+      <div className="mx-5 border-top">
+        <div className="row d-flex justify-content-center">
+          <div className="col-md-4">
+            <img src={gistsPic} alt="..." className="w-100" />
           </div>
 
-          <div className="col-md-6">
-            <h3 className="my-0">What is Gists?</h3>
+          <div className="col-md-6 my-auto">
+            <h3 className="mb-4 font-weight-bold">What are Gists?</h3>
+            <p className="my-0">
+              Gist is a service from popular code-sharing repository called
+              GitHub. The function of gists is similar to pastebin.com where
+              people are able to share snippets of code or text with others,
+              albeit for gists, there is version control via git. It is used
+              when you need to share a sample piece of code or technique with
+              your co-workers or friends.
+            </p>
           </div>
         </div>
         <div></div>
       </div>
       <div className="mx-5">
-        <h3 className="my-0">Featured Gists</h3>
+        <h3 className="my-0 font-weight-bold">Featured Gists</h3>
         <div className="row">
           {dataGists.map((item, index) => {
             return (
               <div className="col-md-3 mt-4" key={index}>
-                <div class="card card-shadow-fx">
+                <div className="card card-shadow-fx">
                   <img
                     src={item.owner.avatar_url}
-                    class="card-img-top"
+                    className="card-img-top"
                     alt="..."
                   />
-                  <div class="card-body">
-                    <h6 class="card-title">
+                  <div className="card-body">
+                    <h6 className="card-title">
                       <b>Gists Title</b>:{" "}
                       {item.description ? item.description : "-"}
                     </h6>
-                    <p class="card-text my-1">
+                    <p className="card-text my-1">
                       <b>By</b>: {item.owner.login}
                     </p>
-                    <p class="card-text">
+                    <p className="card-text">
                       <b>Comments</b>: {item.comments ? item.comments : "-"}
                     </p>
+
+                    <button
+                      className="btn btn-outline-danger rounded-circle p-0 mr-2"
+                      style={{ height: "2.5rem", width: "2.5rem" }}
+                    >
+                      <i className="fas fa-heart fa-lg"></i>
+                    </button>
+
                     <a
                       href={item.html_url}
                       target="blank"
-                      class="btn btn-outline-primary mb-2"
+                      className="btn btn-outline-primary rounded-circle pl-2 mr-2"
+                      style={{ height: "2.5rem", width: "2.5rem" }}
                     >
-                      Check Gists
+                      <i className="fas fa-print fa-lg"></i>
                     </a>
 
                     <button
                       onClick={() => goProfile(item.owner.url)}
-                      className="btn btn-outline-danger"
+                      className="btn btn-outline-black rounded-circle p-0"
+                      style={{ height: "2.5rem", width: "2.5rem" }}
                     >
-                      See Contributor
+                      <i className="fas fa-user fa-lg"></i>
                     </button>
                   </div>
                 </div>

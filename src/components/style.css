@@ -1,5 +1,5 @@
-.btn-secondary:focus {
-  background-color: red !important;
+.test-fx:focus {
+  background-color: yellow !important;
 }
 .card-shadow-fx {
   box-shadow: 0px 2px 7px 7px rgba(0, 0, 0, 0.2);

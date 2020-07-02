@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import GistsPage from "./components/gistsPage/Index";
 import DeveloperPage from "./components/Developer";
+import FavouritePage from "./components/Favourite";
 import Sidebar from "./components/Sidebar";
 
 function App() {
@@ -18,6 +19,10 @@ function App() {
 
             <Route exact path="/developer">
               <DeveloperPage />
+            </Route>
+
+            <Route exact path="/favourite">
+              <FavouritePage />
             </Route>
 
             <Route path="/">

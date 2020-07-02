@@ -65,14 +65,14 @@ function GistsProfileModal(props) {
                   <b>Bio</b>: {dataProfile.bio ? dataProfile.bio : "-"}
                 </p>
 
-                <small className="card-text text-secondary mr-3">
-                  Followers : {dataProfile.followers}
+                <small className="card-text text-secondary mr-2">
+                  Followers: {dataProfile.followers}
                 </small>
-                <small className="card-text text-secondary mr-3">
-                  Following : {dataProfile.following}
+                <small className="card-text text-secondary mr-2">
+                  Following: {dataProfile.following}
                 </small>
                 <small className="card-text text-secondary">
-                  Open for Jobs : {dataProfile.hireable ? "Yes" : "No"}
+                  Open for Jobs: {dataProfile.hireable ? "Yes" : "No"}
                 </small>
               </div>
 
@@ -95,13 +95,10 @@ function GistsProfileModal(props) {
                     <small className="font-weight-bold">Website/Blog</small>
                   </a>
                 ) : (
-                  <a
-                    target="blank"
-                    className="btn btn-outline-black d-flex d-row ml-3 disabled"
-                  >
+                  <button className="btn btn-outline-black d-flex d-row ml-3 disabled">
                     <i className="fas fa-globe-americas align-self-center mr-2 fa-sm" />
                     <small className="font-weight-bold">Website/Blog</small>
-                  </a>
+                  </button>
                 )}
               </div>
 
