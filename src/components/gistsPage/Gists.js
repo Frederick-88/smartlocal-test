@@ -82,16 +82,16 @@ function Gists() {
                       className="btn btn-outline-danger rounded-circle p-0 mr-2"
                       style={{ height: "2.5rem", width: "2.5rem" }}
                     >
-                      <i className="fas fa-heart fa-lg"></i>
+                      <i className="fas fa-heart"></i>
                     </button>
 
                     <a
                       href={item.html_url}
                       target="blank"
-                      className="btn btn-outline-primary rounded-circle pl-2 mr-2"
+                      className="btn btn-outline-primary rounded-circle p-0 pt-2 mr-2"
                       style={{ height: "2.5rem", width: "2.5rem" }}
                     >
-                      <i className="fas fa-print fa-lg"></i>
+                      <i className="fas fa-print"></i>
                     </a>
 
                     <button
@@ -99,7 +99,7 @@ function Gists() {
                       className="btn btn-outline-black rounded-circle p-0"
                       style={{ height: "2.5rem", width: "2.5rem" }}
                     >
-                      <i className="fas fa-user fa-lg"></i>
+                      <i className="fas fa-user"></i>
                     </button>
                   </div>
                 </div>

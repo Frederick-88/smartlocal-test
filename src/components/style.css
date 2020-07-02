@@ -13,3 +13,8 @@
   background-color: #1a1a1a;
   border-color: #1a1a1a;
 }
+.list-group-item.active {
+  background-color: transparent !important;
+  color: #007bff !important;
+  border: none !important;
+}

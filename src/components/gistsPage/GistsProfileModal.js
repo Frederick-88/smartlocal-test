@@ -4,9 +4,7 @@ import logoGithub from "../../assets/logo-github.png";
 import axios from "axios";
 
 function GistsProfileModal(props) {
-  console.log(props.urlDataProfile);
   const [dataProfile, setDataProfile] = useState([]);
-  // console.log(dataProfile);
 
   const hideGistsProfileModal = () => {
     props.undisplayGistsProfileModal(false);
@@ -14,7 +12,6 @@ function GistsProfileModal(props) {
 
   useEffect(() => {
     axios.get(`${props.urlDataProfile}`).then((response) => {
-      console.log(response);
       setDataProfile(response.data);
     });
     // parameter of url, because in the first place there are no url. it will come in the 2nd render.
