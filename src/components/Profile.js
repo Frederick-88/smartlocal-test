@@ -62,17 +62,17 @@ function Profile() {
       <ToastContainer />
       <div className="mx-5 border-top">
         <form onSubmit={handleSubmit}>
-          <div class="input-group mb-3 mt-4">
+          <div className="input-group mb-3 mt-4">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               placeholder="Github Id"
               onChange={handleInputChanges}
             />
-            <div class="input-group-append">
+            <div className="input-group-append">
               <button
                 type="submit"
-                class="btn btn-outline-secondary"
+                className="btn btn-outline-secondary"
                 id="button-addon2"
               >
                 Search

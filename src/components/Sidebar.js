@@ -8,7 +8,9 @@ function Sidebar() {
       className="text-center border-right"
       style={{ width: "200px", height: "100vh" }}
     >
-      <img src={logo} style={{ width: "8rem" }} className="my-3" alt="..." />
+      <a href="/">
+        <img src={logo} style={{ width: "8rem" }} className="my-3" alt="..." />
+      </a>
 
       <div className="list-group">
         <NavLink

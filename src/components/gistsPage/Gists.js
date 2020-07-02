@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import GistsProfileModal from "./GistsProfileModal";
 import logoGithub from "../../assets/logo-github.png";
 import gistsPic from "../../assets/gists.png";
@@ -12,7 +14,6 @@ function Gists() {
   const [dataFavourite, setDataFavourite] = useState([]);
   // add favourite = if function clicked, needed to avoid looping in useEffect when use "dataFavourite" as parameter.
   const [addFavourite, setAddFavourite] = useState(false);
-  console.log(dataFavourite);
 
   useEffect(() => {
     axios.get("https://api.github.com/gists/public").then((response) => {
@@ -21,12 +22,16 @@ function Gists() {
   }, []);
 
   useEffect(() => {
-    const getDataFavourite = localStorage.getItem(
-      "data-favourite",
-      dataFavourite
-    );
-    setDataFavourite(getDataFavourite ? getDataFavourite : []);
-  }, [addFavourite]);
+    const getDataFavourite = localStorage.getItem("data-favourite");
+    // after JSON stringify, we need to JSON parse to get it in object display.
+    setDataFavourite(getDataFavourite ? JSON.parse(getDataFavourite) : []);
+  }, []);
+
+  const setFavouriteNotification = () =>
+    toast.success("You've successfully added a gist to favourite!", {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 3000,
+    });
 
   const goProfile = (itemUrl) => {
     setUrlDataProfile(itemUrl);
@@ -38,11 +43,14 @@ function Gists() {
   };
 
   const setFavourite = (data) => {
+    setFavouriteNotification();
     setAddFavourite(!addFavourite);
-    setDataFavourite(...dataFavourite, data);
-    console.log(dataFavourite);
-
-    // localStorage.setItem("data-favourite", dataFavourite);
+    // if we use spread operator that the value will be objects in array, we need to wrap it in array too.
+    data = [...dataFavourite, data];
+    // setDataFavourite is needed to prevent (reload to get data)
+    setDataFavourite(data);
+    // JSON.stringify needed because localStorage can read string only.
+    localStorage.setItem("data-favourite", JSON.stringify(data));
   };
 
   return (
@@ -72,9 +80,9 @@ function Gists() {
             </p>
           </div>
         </div>
-        <div></div>
       </div>
       <div className="mx-5">
+        <ToastContainer />
         <h3 className="my-0 font-weight-bold">Featured Gists</h3>
         <div className="row">
           {dataGists.map((item, index) => {
