@@ -51,7 +51,7 @@ function Favourite() {
                       <b>By</b>: {item.owner.login}
                     </p>
                     <p className="card-text">
-                      <b>Commeants</b>: {item.comments ? item.comments : "-"}
+                      <b>Comments</b>: {item.comments ? item.comments : "-"}
                     </p>
 
                     <a
