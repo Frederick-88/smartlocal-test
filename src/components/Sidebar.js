@@ -20,7 +20,7 @@ function Sidebar() {
         >
           <i className="fas fa-print align-self-center" />
           <div>
-            <h6 className="my-0 ml-2 font-weight-bold">Gists</h6>
+            <h6 className="my-0 ml-2 font-weight-bold">Giasts</h6>
           </div>
         </NavLink>
 
