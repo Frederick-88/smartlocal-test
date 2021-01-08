@@ -1,7 +1,7 @@
-# This is the test of smartlocal
+## SmartLocal SG Company - CodeTest
 
-#### Fetched from "https://api.github.com/gists/public"
+#### Fetch data & display from this API "https://api.github.com/gists/public"
 
-#### Made with ReactJS,Bootstrap,ReactRouterDOM,ReactToastifyAlert, LocalStorage, etc.
+#### Made with ReactJS, Bootstrap, ReactToastifyAlert, LocalStorage, etc.
 
 #### Check out for this wonderful and amazing web! All functions are made, have fun!
