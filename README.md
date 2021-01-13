@@ -1,4 +1,4 @@
-## SmartLocal SG Company - CodeTest
+## SmartLocal SG Company - Tech Assessment Test
 
 #### Fetch data & display from this API "https://api.github.com/gists/public"
 
