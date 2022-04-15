@@ -1,4 +1,4 @@
-## SmartLocal SG - Tech Assessment Test
+### SmartLocal SG - Tech Assessment Test
 
 #### Made with
 
